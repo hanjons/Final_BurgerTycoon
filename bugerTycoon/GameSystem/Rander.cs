@@ -160,7 +160,6 @@ class Rander
         Console.Write(customor.orderStirng+"        ");   //화면 깜박임 문제때문에 되도록 랜더가 덮어쓰기위해 공백 추가 // 각각 스트링 길이 틀림
         Console.SetCursorPosition(OrderX, Y + 1);
         Console.Write("주문한다 내놔!! 빨리");
-        Console.SetCursorPosition((int)Cursordefualt.CousorX, (int)Cursordefualt.CousorY);
 
     }
 
@@ -184,7 +183,6 @@ class Rander
             Console.Write("  ");
         }
 
-        Console.SetCursorPosition((int)Cursordefualt.CousorX, (int)Cursordefualt.CousorY);
 
     }
 
@@ -291,8 +289,6 @@ class Rander
             Console.WriteLine();
             Console.BackgroundColor = ConsoleColor.Black;
         }
-
-        Console.SetCursorPosition((int)Cursordefualt.CousorX, (int)Cursordefualt.CousorY);
 
     }
 
