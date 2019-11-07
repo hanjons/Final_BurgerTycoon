@@ -1,0 +1,64 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Media;
+using System.Threading;
+
+
+class SceneStart
+{
+    public Thread MusicThread;     //bgm을 위한 뜨레드
+
+    public void run()
+    {
+        string[] titleArr = new string[25];
+        titleArr[0] = "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM";
+        titleArr[1] = "MMMMMMMMMMMMWNWMMMMMMMXOkONMMMMMMMMMMMMMWNKOKNKxx0MMMMMMMMMMMMMMMMWXOOXWMMMWWMMMMMMMMMMMN0O0NWMMMMMM";
+        titleArr[2] = "MMMMMMMMMMXd:,,;cdkxkOl. 'OMMMMO:;:c::;,dO; ;Kl  dWMMXo::xWMO:,lKMWd. cNMMMx,;::::::l0MMK; .kMMMMMMM";
+        titleArr[3] = "MMMMMMMMM0,'dOx'  .';:,  '0MMMMKxdl. 'odOK; ;Xl .xMMMNc  :KKo. '0MWx. :NMMM0loddo;. .kMMX; .kMMMMMMM";
+        titleArr[4] = "MMMMMMMMMo ;KX0;  'dkxc. '0MMMMMMWo. oWMMX; .,. .xMMMMd. .;:'   '::'  ;XMMMMMMMMMk.  '::;. .xMMMMMMM";
+        titleArr[5] = "MMMMMMMMM0;.... .,;:::,  ,KMMMMMXl.';,;cdk; .d, .xMMMMo  :XNo. .oOOl  ;XMMMMMMMMMx. .dOOx' .xMMMMMMM";
+        titleArr[6] = "MMMMMMMMMWN0xddkXWMMMMO. ,0MMWNk,.lXWKl.'d; ;Xl .xMMMMl  'ol,  '0MMx. ;XMMMMMMMMMo  ;XMMX; .xMMMMMMM";
+        titleArr[7] = "MMMMMMMMMMMMMMMMWKkkkOl  '0MMNo..xNMMMW00K; ;Xl .xMMMWx,,;:::::oXMMd  ;XMMMMMMMMWc  ;XMMX; .xMMMMMMM";
+        titleArr[8] = "MMMMMMMMMMMMMMW0c',;'. .lkNMMWKx0WMMMMMMMK; ;Xl  oMMMMMMMMMMMMMMMMMl  ;XMMMMMMMMW0xk0WMMK, .xMMMMMMM";
+        titleArr[9] = "MMMMMMMMMMMMMM0' lNMN:  oWMMMMMMMMMMMMMMM0, :Kc  lMMMMMMMMMMMMMMMMMl  ;XMMMMMMMMMMMMMMMM0' .dMMMMMMM";
+        titleArr[10] = "MMMMMMMMMMMMMMO' ,dxo. .dWMMMMMMMMMMMMMMMN0OKNOdxKWMMMMMMMMMMMMMMMM0ddOWMMMMMMMMMMMMMMMMNkddKMMMMMMM";
+        titleArr[11] = "MMMMMMMMMMMMMMWOc'....;xNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM";
+        titleArr[12] = "MMMMMMMMMMMMMMMMMNK0KXWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM";
+        titleArr[13] = "MMMMMMMMMMMMMMMMMMMMMX0KKKKK0O0NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM";
+        titleArr[14] = "MMMMMMMMMMMMMMMMMMMMMOcll,.;l:;OMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM";
+        titleArr[15] = "MMMMMMMMMMMMMMMMMMMMMWWMWc cWWNXkokNMWOoxKW0dlccd0NWWXxlllxXMMXxlllxXMNOkxolldXMMMMMMMMMMMMMMMMMMMMM";
+        titleArr[16] = "MMMMMMMMMMMMMMMMMMMMMMMMWc cWMMWk..kM0' lXx..lxo;cxKO'.cd:.:XO'.cd:.:XK, .lx; :XMMMMMMMMMMMMMMMMMMMM";
+        titleArr[17] = "MMMMMMMMMMMMMMMMMMMMMMMMWc cWMMMWx.;0l.cNN: :NMMWWWWo :NMK,.do :NMK,.dNc cWMd ,KMMMMMMMMMMMMMMMMMMMM";
+        titleArr[18] = "MMMMMMMMMMMMMMMMMMMMMMMMX; cWMMMMWo...cXMMx.,0XKxxOXO..xXx..xO..xXx..xK; cWMd ,KMMMMMMMMMMMMMMMMMMMM";
+        titleArr[19] = "MMMMMMMMMMMMMMMMMMMMMMMM0:.lXMMNXWO' lNMMMWk:;:::ldKWO:;c::kNWO:;::ckN0:.dWWd.cKMMMMMMMMMMMMMMMMMMMM";
+        titleArr[20] = "MMMMMMMMMMMMMMMMMMMMMMMMWNXNWMMO;;,,xNMMMMMMWNNNWMMMMMWNXWMMMMMWNXWMMMWNXNMMWNNWMMMMMMMMMMMMMMMMMMMM";
+        titleArr[21] = "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN0O0NWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM";
+        titleArr[22] = "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM";
+        titleArr[23] = "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM";
+        titleArr[24] = "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM";
+
+        MusicThread = new Thread(LoadMusic);  //음악실행
+        MusicThread.Start();
+
+        foreach (var item in titleArr)
+        {                                     //위 그림출력
+            Console.WriteLine(item);
+        }
+
+        Console.WriteLine("아무키나 누르시면 시작합니다.");
+        Console.ReadKey();  
+        Console.Clear();                     //화면 지우고 실행
+    }
+
+
+    public static void LoadMusic()
+    {
+        //음악재생 루트 / 예외처리 필요함 / 안한이유 : 어떻게 하는지 찾는중 / 구동에 문제 없어 놔둠
+        var sound = new SoundPlayer { SoundLocation = "Resources/roller.wav" };
+        sound.PlayLooping();
+    }
+}
+
