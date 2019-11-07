@@ -87,7 +87,7 @@ class GameManager
             if (phaseTicks > 1000 * 10000 * targetTicksphase)                     // 페이즈 업데이트 부분
             {
                 CheckPatience();
-                gameRander.TickRander();                                          // 페이즈 틱당 랜더링
+                gameRander.TickRender();                                          // 페이즈 틱당 랜더링
                 phaseTicks = 0;
             } 
 

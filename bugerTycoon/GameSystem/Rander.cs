@@ -42,7 +42,7 @@ class Rander
 
     }
 
-    public void TickRander()
+    public void TickRender()
     {
         //------------------------------
         // 페이즈틱당 출력되는 부분
@@ -109,23 +109,23 @@ class Rander
         // 플레이어가 버거에 채워넣을 식재료 고르는 부분
         // ** 추가 식재료 추가히시려면 여기도 추가하세요 **식재료**
         //----------------------------------
-        const int BreadX = 6;
-        const int BreadY = 12;
+        const int breadX = 6;
+        const int breadY = 12;
 
 
-        Console.SetCursorPosition(BreadX, BreadY);
+        Console.SetCursorPosition(breadX, breadY);
         Console.BackgroundColor = ConsoleColor.DarkYellow;
         Console.ForegroundColor = ConsoleColor.Black;
         Console.WriteLine("빠앙");
-        Console.SetCursorPosition(BreadX + 10, BreadY);
+        Console.SetCursorPosition(breadX + 10, breadY);
         Console.BackgroundColor = ConsoleColor.Red;
         Console.ForegroundColor = ConsoleColor.Black;
         Console.WriteLine("패티");
-        Console.SetCursorPosition(BreadX + 20, BreadY);
+        Console.SetCursorPosition(breadX + 20, breadY);
         Console.BackgroundColor = ConsoleColor.Green;
         Console.ForegroundColor = ConsoleColor.Black;
         Console.WriteLine("야채");
-        Console.SetCursorPosition(BreadX + 30, BreadY);
+        Console.SetCursorPosition(breadX + 30, breadY);
         Console.BackgroundColor = ConsoleColor.Yellow;
         Console.ForegroundColor = ConsoleColor.Black;
         Console.WriteLine("치즈");
@@ -218,23 +218,23 @@ class Rander
         //---------------------------------------
         // 플레이어 버거 표시 테두리 찍어주는 부분
         //--------------------------------------
-        const int RanderUIy = 8;
-        const int RanderUIx = 50;
+        const int renderUIy = 8;
+        const int renderUIx = 50;
 
-        Console.SetCursorPosition(RanderUIx, RanderUIy);
+        Console.SetCursorPosition(renderUIx, renderUIy);
 
-        for (int y = RanderUIy; y < RanderUIy + 7; y++)
+        for (int y = renderUIy; y < renderUIy + 7; y++)
         {
-            for (int x = RanderUIx; x < RanderUIx + 15; x++)
+            for (int x = renderUIx; x < renderUIx + 15; x++)
             {
 
-                if (y == RanderUIy || y == RanderUIy + 6)
+                if (y == renderUIy || y == renderUIy + 6)
                 {
                     Console.Write("-");
                     continue;
                 }
 
-                if (x == RanderUIx || x == RanderUIx + 14)
+                if (x == renderUIx || x == renderUIx + 14)
                 {
                     Console.Write("|");
                     continue;
@@ -244,7 +244,7 @@ class Rander
 
             }
 
-            Console.WriteLine(); Console.SetCursorPosition(RanderUIx, y + 1);
+            Console.WriteLine(); Console.SetCursorPosition(renderUIx, y + 1);
 
         }
     }
@@ -257,14 +257,14 @@ class Rander
         // 현재 플레이어 버거에 들어와있는 내용 출력
         // ** 식재료 추가시 여기도 수정**  **식재료**
         //--------------------------
-        const int RanderUIy = 8;
-        const int RanderUIx = 50;
+        const int renderUIy = 8;
+        const int randerUIx = 50;
 
         Food[] afood = Qburger.playerBurger.oQueue.ToArray();  // 현재 버거값 게임매니저에서 넘겨받아서 활용
 
         for (int i = 0; i < afood.Length; i++)
         {
-            Console.SetCursorPosition(RanderUIx + 1, RanderUIy + i + 1);
+            Console.SetCursorPosition(randerUIx + 1, renderUIy + i + 1);
 
             switch (afood[i])
             {
